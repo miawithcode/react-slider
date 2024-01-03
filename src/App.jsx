@@ -1,6 +1,10 @@
+import Carousel from "./components/Carousel"
+
 const App = () => {
   return (
-    <div>App</div>
+    <main>
+      <Carousel />
+    </main>
   )
 }
 export default App
