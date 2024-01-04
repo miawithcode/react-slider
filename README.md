@@ -1,5 +1,7 @@
 # Slider
 
+![](public/screenshot.png)
+
 ## Dynamic Slide Style
 
 based on index 设置每张 Slide 的位置
