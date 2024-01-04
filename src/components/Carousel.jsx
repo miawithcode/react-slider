@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { shortList, list, longList } from '../data';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -10,17 +10,24 @@ const Carousel = () => {
   const prevSlide = () => {
     setCurrentPerson((oldPerson) => {
       const newPerson = (oldPerson - 1 + people.length) % people.length;
-      console.log(newPerson);
       return newPerson;
     });
   };
   const nextSlide = () => {
     setCurrentPerson((oldPerson) => {
       const newPerson = (oldPerson + 1) % people.length;
-      console.log(newPerson);
       return newPerson;
     });
   };
+
+  useEffect(() => {
+    const slideId = setInterval(() => {
+      nextSlide();
+    }, 2000);
+    return () => {
+      clearInterval(slideId);
+    };
+  }, [currentPerson]);
 
   return (
     <section className="slider-container">
