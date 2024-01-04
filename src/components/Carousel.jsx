@@ -5,6 +5,8 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const Carousel = () => {
   const [people, setPeople] = useState(list);
+  const [currentPerson, setCurrentPerson] = useState(1);
+
   const prevSlide = () => {};
   const nextSlide = () => {};
 
@@ -13,7 +15,7 @@ const Carousel = () => {
       {people.map((person, index) => {
         const { id, image, name, title, quote } = person;
         return (
-          <article className="slide" key={id} style={{transform: `translateX(${100 * index}%`}}>
+          <article className="slide" key={id} style={{transform: `translateX(${100 * (index - currentPerson)}%`}}>
             <img src={image} alt={name} className="person-img" />
             <h5 className="name">{name}</h5>
             <p className="title">{title}</p>
